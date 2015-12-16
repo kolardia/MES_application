@@ -1,0 +1,163 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context=".MainActivity">
+
+    <!-- view for AdMob Interstitial Ad -->
+
+
+    <TextView android:id="@+id/level" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_level"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_below="@+id/element_glogalny"
+        android:layout_centerHorizontal="true" />
+
+    <Button android:id="@+id/next_level_button" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next_level"
+        android:layout_below="@+id/p_m"
+        android:layout_alignLeft="@+id/p_m"
+        android:layout_alignStart="@+id/p_m"
+        android:layout_toLeftOf="@+id/finish"
+        android:layout_toStartOf="@+id/finish" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wezel_poczatkowy"
+        android:id="@+id/wezel_i"
+        android:layout_marginTop="21dp"
+        android:layout_below="@+id/element_lokalny"
+        android:layout_alignLeft="@+id/element_glogalny"
+        android:layout_alignStart="@+id/element_glogalny" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wspolzedna_poczatkowa_x"
+        android:id="@+id/xi_wspx"
+        android:layout_below="@+id/wezel_i"
+        android:layout_alignLeft="@+id/element_lokalny"
+        android:layout_alignStart="@+id/element_lokalny" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wspolzedna_poczatkowa_y"
+        android:id="@+id/yi_wspy"
+        android:layout_below="@+id/xi_wspx"
+        android:layout_alignLeft="@+id/xi_wspx"
+        android:layout_alignStart="@+id/xi_wspx" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wezel_koncowy"
+        android:id="@+id/wezel_k"
+        android:layout_below="@+id/yi_wspy"
+        android:layout_alignLeft="@+id/wezel_i"
+        android:layout_alignStart="@+id/wezel_i" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wspolzedna_koncowa_x"
+        android:id="@+id/xk_wspx"
+        android:layout_below="@+id/wezel_k"
+        android:layout_alignLeft="@+id/yi_wspy"
+        android:layout_alignStart="@+id/yi_wspy" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wspolzedna_koncowa_y"
+        android:id="@+id/yk_wspy"
+        android:layout_below="@+id/xk_wspx"
+        android:layout_alignLeft="@+id/xk_wspx"
+        android:layout_alignStart="@+id/xk_wspx" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cosinus_elementu_os_x"
+        android:id="@+id/cosx"
+        android:layout_below="@+id/yk_wspy"
+        android:layout_alignLeft="@+id/cosy"
+        android:layout_alignStart="@+id/cosy"
+        android:layout_marginTop="57dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cosinus_elementu_os_y"
+        android:id="@+id/cosy"
+        android:layout_below="@+id/cosx"
+        android:layout_alignLeft="@+id/p_n"
+        android:layout_alignStart="@+id/p_n" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/interstitial_ad_sample"
+        android:id="@+id/app_title"
+        android:layout_marginTop="28dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ff77b5e9" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/element_lokalny"
+        android:id="@+id/element_lokalny"
+        android:layout_below="@+id/level"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/element_globalny"
+        android:id="@+id/element_glogalny"
+        android:textColor="#6f305c7c"
+        android:layout_below="@+id/app_title"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/app_title"
+        android:layout_alignStart="@+id/app_title" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sila_podluzna"
+        android:id="@+id/p_n"
+        android:layout_marginTop="27dp"
+        android:layout_below="@+id/cosy"
+        android:layout_alignLeft="@+id/wezel_k"
+        android:layout_alignStart="@+id/wezel_k" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sila_moment"
+        android:id="@+id/p_m"
+        android:layout_below="@+id/p_n"
+        android:layout_alignLeft="@+id/cosy"
+        android:layout_alignStart="@+id/cosy" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Koniec"
+        android:onClick="ButtonOnClick"
+        android:id="@+id/finish"
+        android:layout_alignTop="@+id/next_level_button"
+        android:layout_alignRight="@+id/app_title"
+        android:layout_alignEnd="@+id/app_title"
+        android:textColor="#fffcfffa"
+        android:textColorHint="#fffcfaff" />
+
+</RelativeLayout>
