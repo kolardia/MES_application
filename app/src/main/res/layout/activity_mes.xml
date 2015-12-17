@@ -1,3 +1,7 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
@@ -16,10 +20,12 @@
     <Button android:id="@+id/next_level_button" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/next_level"
+        android:layout_marginTop="22dp"
         android:layout_below="@+id/p_m"
         android:layout_alignLeft="@+id/p_m"
         android:layout_alignStart="@+id/p_m"
-        android:layout_marginTop="39dp" />
+        android:layout_toLeftOf="@+id/finish"
+        android:layout_toStartOf="@+id/finish" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -80,11 +86,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/cosinus_elementu_os_x"
-        android:id="@+id/cosx"
+        android:id="@+id/funkcja_c"
         android:layout_below="@+id/yk_wspy"
-        android:layout_marginTop="57dp"
-        android:layout_alignLeft="@+id/p_n"
-        android:layout_alignStart="@+id/p_n" />
+        android:layout_alignLeft="@+id/cosy"
+        android:layout_alignStart="@+id/cosy"
+        android:layout_marginTop="68dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -124,10 +130,10 @@
         android:layout_height="wrap_content"
         android:text="@string/sila_podluzna"
         android:id="@+id/p_n"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="53dp"
+        android:layout_below="@+id/funkcja_c"
         android:layout_alignLeft="@+id/wezel_k"
-        android:layout_alignStart="@+id/wezel_k"
-        android:layout_below="@+id/cosx" />
+        android:layout_alignStart="@+id/wezel_k" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -150,4 +156,23 @@
         android:textColor="#fffcfffa"
         android:textColorHint="#fffcfaff" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="cosinusX"
+        android:id="@+id/cosx"
+        android:layout_below="@+id/funkcja_c"
+        android:layout_alignLeft="@+id/funkcja_c"
+        android:layout_alignStart="@+id/funkcja_c" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="cosinusY"
+        android:id="@+id/cosy"
+        android:layout_below="@+id/cosx"
+        android:layout_alignLeft="@+id/p_n"
+        android:layout_alignStart="@+id/p_n" />
+
 </RelativeLayout>
+</ScrollView>

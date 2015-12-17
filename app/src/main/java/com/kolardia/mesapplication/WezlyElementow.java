@@ -145,4 +145,29 @@ public class WezlyElementow {
         double element = przedzialElementu + przedzialElementu;
         return element;
     }
+
+    public double cosinusElementuX(double wspXi , double wspXk, double wspYi , double wspYk) {
+
+        double przedzialX = (wspXk) - (wspXi);
+        double przedzialY = (wspYk) - (wspYi);
+        double potegaPrzedzialuX = Math.pow(przedzialX, 2);
+        double potegaPrzedzialuY = Math.pow(przedzialY, 2);
+        double pierwiastekPrzedzialowXY = Math.sqrt(potegaPrzedzialuX + potegaPrzedzialuY);
+        double cosinusElementu = przedzialX / pierwiastekPrzedzialowXY;
+
+        return cosinusElementu;
+
+    }
+    public double cosinusElementuY(double wspXi , double wspXk, double wspYi , double wspYk) {
+
+        double przedzialX = (wspXk) - (wspXi);
+        double przedzialY = (wspYk) - (wspYi);
+        double potegaPrzedzialuX = Math.pow(przedzialX, 2);
+        double potegaPrzedzialuY = Math.pow(przedzialY, 2);
+        double pierwiastekPrzedzialowXY = Math.sqrt(potegaPrzedzialuX + potegaPrzedzialuY);
+        double cosinusElementu = przedzialY / pierwiastekPrzedzialowXY;
+
+        return cosinusElementu;
+
+    }
 }

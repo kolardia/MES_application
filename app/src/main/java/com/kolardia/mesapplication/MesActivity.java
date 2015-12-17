@@ -4,16 +4,12 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,14 +22,12 @@ import android.widget.Toast;
         private static final int START_ELEMENT_LOKALNY = 1;
         private static final int START_WSPOLZEDNA_Xi = -1;
         private static final int START_WSPOLZEDNA_Xk = 0;
-       /* private static final int START_WSPOLZEDNA_Yi = 0;
-        private static final int START_WSPOLZEDNA_Yk = 1;*/
+
         private int mLevel;
         private int mELokalny;
         private int mXiWspx;
         private int mXkWspx;
-        private int mYiWspx;
-        private int mYkWspx;
+
         private Button mNextLevelButton;
         private InterstitialAd mInterstitialAd;
         private TextView mLevelTextView;
@@ -50,6 +44,8 @@ import android.widget.Toast;
         private WezlyElementow getY;
 
         private TextView funkcjaPodcalkowa;
+        private TextView cosinusX;
+        private TextView cosinusY;
 
         private TextView eLokalny;
         private TextView eGlobalny;
@@ -77,7 +73,8 @@ import android.widget.Toast;
         private double lokalnyParametrL;
 
         private WezlyElementow fCalkowa;
-
+        private WezlyElementow getCosinusX;
+        private WezlyElementow getCosinusY;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -104,7 +101,9 @@ import android.widget.Toast;
             xkWspx = (TextView) findViewById(R.id.xk_wspx);
             ykWspy = (TextView) findViewById(R.id.yk_wspy);
 
-            funkcjaPodcalkowa = (TextView) findViewById(R.id.cosx);
+            funkcjaPodcalkowa = (TextView) findViewById(R.id.funkcja_c);
+            cosinusX = (TextView) findViewById(R.id.cosx);
+            cosinusY = (TextView) findViewById(R.id.cosy);
 
             eLokalny = (TextView) findViewById(R.id.element_lokalny);
             eGlobalny = (TextView) findViewById(R.id.element_glogalny);
@@ -116,8 +115,6 @@ import android.widget.Toast;
             mELokalny = START_ELEMENT_LOKALNY;
             mXiWspx = START_WSPOLZEDNA_Xi;
             mXkWspx = START_WSPOLZEDNA_Xk;
-           /* mYiWspx = START_WSPOLZEDNA_Yi;
-            mYkWspx = START_WSPOLZEDNA_Yk;*/
 
             Intent i = getIntent();
             sPE = i.getStringExtra("IloscPrzedzialow");
@@ -145,6 +142,8 @@ import android.widget.Toast;
 
             getX = new WezlyElementow();
             getY = new WezlyElementow();
+            getCosinusX = new WezlyElementow();
+            getCosinusY = new WezlyElementow();
 
             // Create the InterstitialAd and set the adUnitId (defined in values/strings.xml).
             mInterstitialAd = new InterstitialAd(this);
@@ -264,7 +263,10 @@ import android.widget.Toast;
             xkWspx.setText("Wspolzedna x= " + getX.wykazWspolzednejX(parametrL, lokalnyParametrL, ++mXkWspx));
             ykWspy.setText("Wspolzedna y= " + getY.wykazWspolzednejY(parametrPrzedzialow, parametrL, parametrF, parametrJ, getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXkWspx)));
 
-            funkcjaPodcalkowa.setText("Funkcja podcalkowa w punkcie calkowania= " + fCalkowa.fCalka(getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXiWspx),getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXkWspx))  );
+            funkcjaPodcalkowa.setText("Funkcja podcalkowa w punkcie calkowania= " + fCalkowa.fCalka(getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXiWspx), getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXkWspx))  );
+
+            cosinusX.setText("Cosinus elementu X= " + getCosinusX.cosinusElementuX(getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXiWspx), getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXkWspx), getY.wykazWspolzednejY(parametrPrzedzialow, parametrL, parametrF, parametrJ, getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXiWspx)),getY.wykazWspolzednejY(parametrPrzedzialow, parametrL, parametrF, parametrJ, getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXkWspx))));
+            cosinusY.setText("Cosinus elementu Y= " + getCosinusY.cosinusElementuY(getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXiWspx), getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXkWspx), getY.wykazWspolzednejY(parametrPrzedzialow, parametrL, parametrF, parametrJ, getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXiWspx)),getY.wykazWspolzednejY(parametrPrzedzialow, parametrL, parametrF, parametrJ, getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXkWspx))));
 
             pN.setText("wykaz sily podluznej = " + "wynik");
             pM.setText("wykaz momentu zginajacego = " + "wynik");
