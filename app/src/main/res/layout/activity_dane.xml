@@ -30,8 +30,23 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Wzkaz ilosc elementow w przedziale:"
-            android:id="@+id/textView_przedzial_elementow" />
+            android:text="Wzkaz ilosc elementow lokoalnych:"
+            android:id="@+id/textView_lokalne_elementy" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/edit_lokalne_elementy"
+            android:layout_gravity="center_horizontal"
+            android:autoText="false" />
+
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wzkaz ilosc elementow w przedziale L:"
+        android:id="@+id/textView_przedzial_elementow" />
 
         <EditText
             android:layout_width="match_parent"
@@ -41,6 +56,7 @@
             android:id="@+id/edit_przedzial_elementow"
             android:layout_gravity="center_horizontal"
             android:autoText="false" />
+
 
         <TextView
             android:layout_width="wrap_content"

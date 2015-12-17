@@ -13,6 +13,7 @@ import android.widget.EditText;
 public class DaneActivityActivity extends ActionBarActivity {
 
     //deklarowanie zmiennych
+    EditText wprowadzIloscElementowLokalnych;
     EditText wprowadzIloscPrzedzialow;
     EditText wprowadzP;
     EditText wprowadzL;
@@ -29,6 +30,7 @@ public class DaneActivityActivity extends ActionBarActivity {
         setContentView(R.layout.activity_dane);
 
         //Przypisanie do zmiennych obiektow
+        wprowadzIloscElementowLokalnych = (EditText) findViewById(R.id.edit_lokalne_elementy);
         wprowadzIloscPrzedzialow = (EditText)findViewById(R.id.edit_przedzial_elementow);
         wprowadzP = (EditText)findViewById(R.id.edit_P);
         wprowadzL = (EditText)findViewById(R.id.edit_L);
@@ -45,6 +47,7 @@ public class DaneActivityActivity extends ActionBarActivity {
                 Intent nowyEkran = new Intent(getApplicationContext(), MesActivity.class);
 
                 //Wysy³anie danych do drugiej aktywnoœci
+                nowyEkran.putExtra("IloscElementowLokalnych", wprowadzIloscElementowLokalnych.getText().toString());
                 nowyEkran.putExtra("IloscPrzedzialow",wprowadzIloscPrzedzialow.getText().toString());
                 nowyEkran.putExtra("L",wprowadzL.getText().toString());
                 nowyEkran.putExtra("F",wprowadzF.getText().toString());

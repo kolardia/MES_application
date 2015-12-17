@@ -53,6 +53,7 @@ import android.widget.Toast;
         private TextView pN;
         private TextView pM;
 
+        private String sEL;
         private String sPE;
         private String sL;
         private String sF;
@@ -61,6 +62,7 @@ import android.widget.Toast;
         private String sJ;
         private String sA;
 
+        private double parametrElementowLokalnych;
         private double parametrPrzedzialow;
         private double parametrL;
         private double parametrF;
@@ -117,6 +119,7 @@ import android.widget.Toast;
             mXkWspx = START_WSPOLZEDNA_Xk;
 
             Intent i = getIntent();
+            sEL = i.getStringExtra("IloscElementowLokalnych");
             sPE = i.getStringExtra("IloscPrzedzialow");
             sL = i.getStringExtra("L");
             sF = i.getStringExtra("F");
@@ -125,6 +128,7 @@ import android.widget.Toast;
             sJ = i.getStringExtra("J");
             sA = i.getStringExtra("A");
 
+            parametrElementowLokalnych = Double.valueOf(sEL).intValue();
             parametrPrzedzialow = Double.valueOf(sPE).intValue();
             parametrL = Double.valueOf(sL).doubleValue();
             parametrF = Double.valueOf(sF).doubleValue();
@@ -203,7 +207,7 @@ import android.widget.Toast;
 
         private int licznikElementow = 0;
         private void showInterstitial() {
-            if(parametrPrzedzialow == licznikElementow ){
+            if(parametrElementowLokalnych == licznikElementow ){
                 Toast.makeText(this, "Koniec obliczen", Toast.LENGTH_SHORT).show();
             } else {
                 goToNextLevel();
@@ -254,22 +258,31 @@ import android.widget.Toast;
 
 
             eLokalny.setText("Element lokalny: " + (mELokalny++));
-            eGlobalny.setText("ilosc elementow w przedziale globalnym: " + parametrPrzedzialow);
+            eGlobalny.setText("ilosc elementow w przedziale luku: " + parametrPrzedzialow);
             wezelI.setText("Wykaz wezla poczatkowego danego elementu: ");
-            xiWspx.setText("Wspolzedna x= " + getX.wykazWspolzednejX(parametrL, lokalnyParametrL, ++mXiWspx));
-            yiWspy.setText("Wspolzedna y= " + getY.wykazWspolzednejY(parametrPrzedzialow, parametrL, parametrF, parametrJ, getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXiWspx)));
+
+            double wspXi = getX.wykazWspolzednejX(parametrL, lokalnyParametrL, ++mXiWspx);
+            double wspYi = getY.wykazWspolzednejY(parametrPrzedzialow, parametrL, parametrF, parametrJ, wspXi);
+            xiWspx.setText("Wspolzedna x= " + wspXi);
+            yiWspy.setText("Wspolzedna y= " + wspYi);
 
             wezelK.setText("Wykaz wezla koncowego danego elementu: ");
-            xkWspx.setText("Wspolzedna x= " + getX.wykazWspolzednejX(parametrL, lokalnyParametrL, ++mXkWspx));
-            ykWspy.setText("Wspolzedna y= " + getY.wykazWspolzednejY(parametrPrzedzialow, parametrL, parametrF, parametrJ, getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXkWspx)));
+            double wspXk = getX.wykazWspolzednejX(parametrL, lokalnyParametrL, ++mXkWspx);
+            double wspYk = getY.wykazWspolzednejY(parametrPrzedzialow, parametrL, parametrF, parametrJ, wspXk);
+            xkWspx.setText("Wspolzedna x= " + wspXk);
+            ykWspy.setText("Wspolzedna y= " + wspYk);
 
             funkcjaPodcalkowa.setText("Funkcja podcalkowa w punkcie calkowania= " + fCalkowa.fCalka(getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXiWspx), getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXkWspx))  );
 
-            cosinusX.setText("Cosinus elementu X= " + getCosinusX.cosinusElementuX(getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXiWspx), getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXkWspx), getY.wykazWspolzednejY(parametrPrzedzialow, parametrL, parametrF, parametrJ, getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXiWspx)),getY.wykazWspolzednejY(parametrPrzedzialow, parametrL, parametrF, parametrJ, getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXkWspx))));
-            cosinusY.setText("Cosinus elementu Y= " + getCosinusY.cosinusElementuY(getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXiWspx), getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXkWspx), getY.wykazWspolzednejY(parametrPrzedzialow, parametrL, parametrF, parametrJ, getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXiWspx)),getY.wykazWspolzednejY(parametrPrzedzialow, parametrL, parametrF, parametrJ, getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXkWspx))));
+            double cosX = getCosinusX.cosinusElementuX(wspXi, wspXk, wspYi, wspYk);
+            double cosY = getCosinusY.cosinusElementuY(wspXi, wspXk, wspYi, wspYk);
+            cosinusX.setText("Cosinus elementu X= " + cosX);
+                    //getCosinusX.cosinusElementuX(getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXiWspx), getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXkWspx), getY.wykazWspolzednejY(parametrPrzedzialow, parametrL, parametrF, parametrJ, getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXiWspx)),getY.wykazWspolzednejY(parametrPrzedzialow, parametrL, parametrF, parametrJ, getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXkWspx))));
+            cosinusY.setText("Cosinus elementu Y= " + cosY);
+                    //getCosinusY.cosinusElementuY(getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXiWspx), getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXkWspx), getY.wykazWspolzednejY(parametrPrzedzialow, parametrL, parametrF, parametrJ, getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXiWspx)),getY.wykazWspolzednejY(parametrPrzedzialow, parametrL, parametrF, parametrJ, getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXkWspx))));
 
-            pN.setText("wykaz sily podluznej = " + "wynik");
-            pM.setText("wykaz momentu zginajacego = " + "wynik");
+            pN.setText("wykaz sily podluznej = " + cosX * parametrP);
+            pM.setText("wykaz momentu zginajacego = " + parametrElementowLokalnych);
 
             // loadInterstitial();
         }
