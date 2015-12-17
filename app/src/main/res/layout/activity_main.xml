@@ -23,8 +23,7 @@
         android:src = "@drawable/luk"
         android:paddingTop="5dp"
         android:layout_below="@+id/textVieww_wstep"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="27dp" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -64,9 +63,22 @@
         android:id="@+id/button_dane"
         android:onClick="ButtonOnClick"
         android:textColor="#ff000000"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/autor"
-        android:layout_alignStart="@+id/autor" />
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="61dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Zaawansowana metoda rozwiązywania układów równań różniczkowych, opierająca się na podziale dziedziny (tzw. dyskretyzacja) na skończone elementy, dla których rozwiązanie jest przybliżane przez konkretne funkcje, i przeprowadzaniu faktycznych obliczeń tylko dla węzłów tego podziału."
+        android:id="@+id/textView2"
+        android:layout_below="@+id/autor"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

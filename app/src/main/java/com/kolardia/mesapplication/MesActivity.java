@@ -24,16 +24,16 @@ import android.widget.Toast;
 
         private static final int START_LEVEL = 1;
         private static final int START_ELEMENT_LOKALNY = 1;
-        private static final int START_WSPOLZEDNA_Xi = 0;
+        private static final int START_WSPOLZEDNA_Xi = -1;
         private static final int START_WSPOLZEDNA_Xk = 0;
-        private static final int START_WSPOLZEDNA_Yi = 0;
-        private static final int START_WSPOLZEDNA_Yk = 0;
+       /* private static final int START_WSPOLZEDNA_Yi = 0;
+        private static final int START_WSPOLZEDNA_Yk = 1;*/
         private int mLevel;
         private int mELokalny;
-        private double mXiWspx;
-        private double mXkWspx;
-        private double mYiWspx;
-        private double mYkWspx;
+        private int mXiWspx;
+        private int mXkWspx;
+        private int mYiWspx;
+        private int mYkWspx;
         private Button mNextLevelButton;
         private InterstitialAd mInterstitialAd;
         private TextView mLevelTextView;
@@ -45,6 +45,9 @@ import android.widget.Toast;
         private TextView yiWspy;
         private TextView xkWspx;
         private TextView ykWspy;
+
+        private WezlyElementow getX;
+        private WezlyElementow getY;
 
         private TextView cosinusX;
         private TextView cosinusY;
@@ -70,6 +73,9 @@ import android.widget.Toast;
         private double parametrE;
         private double parametrJ;
         private double parametrA;
+
+        private WezlyElementow getLokalnyParametrL;
+        private double lokalnyParametrL;
 
 
         @Override
@@ -110,8 +116,8 @@ import android.widget.Toast;
             mELokalny = START_ELEMENT_LOKALNY;
             mXiWspx = START_WSPOLZEDNA_Xi;
             mXkWspx = START_WSPOLZEDNA_Xk;
-            mYiWspx = START_WSPOLZEDNA_Yi;
-            mYkWspx = START_WSPOLZEDNA_Yk;
+           /* mYiWspx = START_WSPOLZEDNA_Yi;
+            mYkWspx = START_WSPOLZEDNA_Yk;*/
 
             Intent i = getIntent();
             sPE = i.getStringExtra("IloscPrzedzialow");
@@ -130,9 +136,19 @@ import android.widget.Toast;
             parametrJ = Double.valueOf(sJ).doubleValue();
             parametrA = Double.valueOf(sA).doubleValue();
 
+            /* Iloœæ elementow zostanie poprana z parametru Przedzialow dla niech zostanie obliczony podzil wezlow
+             * Podzial elementu globalnego dla wskazanej ilosci elementow lokalnych
+             **/
+            getLokalnyParametrL = new WezlyElementow();
+            lokalnyParametrL = getLokalnyParametrL.podzialElementowLokalnych(parametrPrzedzialow, parametrL);
+
+            getX = new WezlyElementow();
+            getY = new WezlyElementow();
+
             // Create the InterstitialAd and set the adUnitId (defined in values/strings.xml).
             mInterstitialAd = new InterstitialAd(this);
             mInterstitialAd.setAdUnitId(getString(R.string.info));
+
             mInterstitialAd.setAdListener(new AdListener() {
                 @Override
                 public void onAdLoaded() {
@@ -231,19 +247,21 @@ import android.widget.Toast;
 
         // {
         private void goToNextLevel() {
-            // Show the next level and reload the ad to prepare for the level after.
-            //mLevelTextView.setText("Level " + (++mLevel));
+           /* podzial rozpocznie sie dla penej dlugosci osi X dla parametru L
+           * dlugosc osi X = parametr L
+           * wynioslosc osi Y = parametr =F
+           * */
 
 
             eLokalny.setText("Element lokalny: " + (mELokalny++));
             eGlobalny.setText("ilosc elementow w przedziale globalnym: " + parametrPrzedzialow);
             wezelI.setText("Wykaz wezla poczatkowego danego elementu: ");
-            xiWspx.setText("Wspolzedna x= " + test1(mXiWspx++));
-            yiWspy.setText("Wspolzedna y= " + (mXkWspx++));
+            xiWspx.setText("Wspolzedna x= " + getX.wykazWspolzednejX(parametrL, lokalnyParametrL, ++mXiWspx));
+            yiWspy.setText("Wspolzedna y= " + getY.wykazWspolzednejY(parametrPrzedzialow, parametrL, parametrF, parametrJ, getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXiWspx)));
 
             wezelK.setText("Wykaz wezla koncowego danego elementu: ");
-            xkWspx.setText("Wspolzedna x= " + (mYiWspx++));
-            ykWspy.setText("Wspolzedna y= " + (mYkWspx++));
+            xkWspx.setText("Wspolzedna x= " + getX.wykazWspolzednejX(parametrL, lokalnyParametrL, ++mXkWspx));
+            ykWspy.setText("Wspolzedna y= " + getY.wykazWspolzednejY(parametrPrzedzialow, parametrL, parametrF, parametrJ, getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXkWspx)));
 
             cosinusX.setText("cos(X,x1)= " + sPE  );
             cosinusY.setText("cos(Z,x1)= " + sPE );
