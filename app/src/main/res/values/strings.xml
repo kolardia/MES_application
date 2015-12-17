@@ -17,7 +17,7 @@
     <string name="wspolzedna_koncowa_x">Wspolzedna x wezla koncowego</string>
     <string name="wspolzedna_koncowa_y">Wspolzedna y wezla koncowego</string>
 
-    <string name="cosinus_elementu_os_x">Cosinus elementu na osi X</string>
+    <string name="cosinus_elementu_os_x">Funkcja podcalkowa w punktach calkownia</string>
     <string name="cosinus_elementu_os_y">Cosinus elementu na osi Y</string>
 
     <string name="sila_podluzna">Wykaz sily normalnej</string>

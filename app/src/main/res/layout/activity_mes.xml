@@ -19,8 +19,7 @@
         android:layout_below="@+id/p_m"
         android:layout_alignLeft="@+id/p_m"
         android:layout_alignStart="@+id/p_m"
-        android:layout_toLeftOf="@+id/finish"
-        android:layout_toStartOf="@+id/finish" />
+        android:layout_marginTop="39dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -83,16 +82,7 @@
         android:text="@string/cosinus_elementu_os_x"
         android:id="@+id/cosx"
         android:layout_below="@+id/yk_wspy"
-        android:layout_alignLeft="@+id/cosy"
-        android:layout_alignStart="@+id/cosy"
-        android:layout_marginTop="57dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cosinus_elementu_os_y"
-        android:id="@+id/cosy"
-        android:layout_below="@+id/cosx"
+        android:layout_marginTop="57dp"
         android:layout_alignLeft="@+id/p_n"
         android:layout_alignStart="@+id/p_n" />
 
@@ -135,9 +125,9 @@
         android:text="@string/sila_podluzna"
         android:id="@+id/p_n"
         android:layout_marginTop="27dp"
-        android:layout_below="@+id/cosy"
         android:layout_alignLeft="@+id/wezel_k"
-        android:layout_alignStart="@+id/wezel_k" />
+        android:layout_alignStart="@+id/wezel_k"
+        android:layout_below="@+id/cosx" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -145,8 +135,8 @@
         android:text="@string/sila_moment"
         android:id="@+id/p_m"
         android:layout_below="@+id/p_n"
-        android:layout_alignLeft="@+id/cosy"
-        android:layout_alignStart="@+id/cosy" />
+        android:layout_alignLeft="@+id/p_n"
+        android:layout_alignStart="@+id/p_n" />
 
     <Button
         android:layout_width="wrap_content"

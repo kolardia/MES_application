@@ -45,7 +45,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="rozpiętość L  l = 1m"
+            android:text="rozpiętość L "
             android:id="@+id/textView_L" />
 
         <EditText
@@ -58,7 +58,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="obciążony siłą P skupioną: P = 10kN"
+            android:text="obciążony siłą P skupioną:"
             android:id="@+id/textView_P" />
 
         <EditText
@@ -71,7 +71,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="wynio- słość f:  0,125  = l"
+            android:text="wynio- słość f:"
             android:id="@+id/textView_F" />
 
         <EditText
@@ -84,7 +84,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="bezwladnosc elementu  J = 864cm4,"
+            android:text="bezwladnosc elementu  J = "
             android:id="@+id/textView_J" />
 
         <EditText
@@ -97,7 +97,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" A = 34cm2,"
+            android:text=" A = "
             android:id="@+id/textView_A" />
 
         <EditText
@@ -110,7 +110,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" E = 200GPa"
+            android:text=" E ="
             android:id="@+id/textView_E" />
 
         <EditText

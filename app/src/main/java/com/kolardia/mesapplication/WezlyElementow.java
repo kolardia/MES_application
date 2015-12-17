@@ -3,6 +3,9 @@ package com.kolardia.mesapplication;
 /**
  * Created by Kolardia on 2015-12-16.
  */
+
+import java.util.Random;
+
 /**
  *Przyjmujmujemy pierszy element dla wspolzednych jako element poczatkowy Xi =0
  *oraz element koncowy pelnej dlugosci osi Xk =8
@@ -21,6 +24,28 @@ public class WezlyElementow {
      * Symetryczny okresla podzial elementu globalnego
      * iloœæ elementow musi byæ parzysta poniewaz jest to oœ symetryczna
      **/
+
+
+    private static double func(double x) {
+        return 0.4 * x;  /*w jaki siposub liczysz t¹ funkcje !!!!!!!*/
+    }
+
+    public static double fCalka(double xp, double xk) {
+        double dx, calka;
+        int n = 10;
+
+        dx = (xk - xp) / (double)n;
+
+        calka = 0;
+        for (int i=1; i<n; i++) {
+            calka += func(xp + i * dx);
+        }
+        calka += (func(xp) + func(xk)) / 2;
+        calka *= dx;
+
+        return calka;
+
+    }
 
     /* Funkcja zostanie wywyo³ana w klasie MesActivity*/
     public double podzialElementowLokalnych(double parametrPrzedzialow, double parametrL) {

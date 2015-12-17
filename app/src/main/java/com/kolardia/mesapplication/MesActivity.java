@@ -49,8 +49,7 @@ import android.widget.Toast;
         private WezlyElementow getX;
         private WezlyElementow getY;
 
-        private TextView cosinusX;
-        private TextView cosinusY;
+        private TextView funkcjaPodcalkowa;
 
         private TextView eLokalny;
         private TextView eGlobalny;
@@ -76,6 +75,8 @@ import android.widget.Toast;
 
         private WezlyElementow getLokalnyParametrL;
         private double lokalnyParametrL;
+
+        private WezlyElementow fCalkowa;
 
 
         @Override
@@ -103,8 +104,7 @@ import android.widget.Toast;
             xkWspx = (TextView) findViewById(R.id.xk_wspx);
             ykWspy = (TextView) findViewById(R.id.yk_wspy);
 
-            cosinusX = (TextView) findViewById(R.id.cosx);
-            cosinusY = (TextView) findViewById(R.id.cosy);
+            funkcjaPodcalkowa = (TextView) findViewById(R.id.cosx);
 
             eLokalny = (TextView) findViewById(R.id.element_lokalny);
             eGlobalny = (TextView) findViewById(R.id.element_glogalny);
@@ -140,6 +140,7 @@ import android.widget.Toast;
              * Podzial elementu globalnego dla wskazanej ilosci elementow lokalnych
              **/
             getLokalnyParametrL = new WezlyElementow();
+            fCalkowa = new WezlyElementow();
             lokalnyParametrL = getLokalnyParametrL.podzialElementowLokalnych(parametrPrzedzialow, parametrL);
 
             getX = new WezlyElementow();
@@ -263,11 +264,10 @@ import android.widget.Toast;
             xkWspx.setText("Wspolzedna x= " + getX.wykazWspolzednejX(parametrL, lokalnyParametrL, ++mXkWspx));
             ykWspy.setText("Wspolzedna y= " + getY.wykazWspolzednejY(parametrPrzedzialow, parametrL, parametrF, parametrJ, getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXkWspx)));
 
-            cosinusX.setText("cos(X,x1)= " + lokalnyParametrL  );
-            cosinusY.setText("cos(Z,x1)= " + lokalnyParametrL );
+            funkcjaPodcalkowa.setText("Funkcja podcalkowa w punkcie calkowania= " + fCalkowa.fCalka(getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXiWspx),getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXkWspx))  );
 
-            pN.setText("wykaz sily podluznej" + parametrPrzedzialow);
-            pM.setText("wykaz momentu zginajacego= " + parametrL);
+            pN.setText("wykaz sily podluznej = " + "wynik");
+            pM.setText("wykaz momentu zginajacego = " + "wynik");
 
             // loadInterstitial();
         }
