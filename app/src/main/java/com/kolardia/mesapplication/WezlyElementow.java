@@ -23,7 +23,7 @@ public class WezlyElementow {
      **/
 
     /* Funkcja zostanie wywyo³ana w klasie MesActivity*/
-    public double podzialElementowLokalnych(int parametrPrzedzialow, double parametrL) {
+    public double podzialElementowLokalnych(double parametrPrzedzialow, double parametrL) {
     /*Parametr Przedzia³ow dotyczy podzialow ewlementu globalnego
     * Parametr L dotyczy przedzial w ktirym wystepuje podzial*/
        /* int iloscPodzialow = (parametrPrzedzialow /2);
@@ -32,7 +32,8 @@ public class WezlyElementow {
             parametrL = parametrL / parametrPrzedzialow;
         }
         /*funkcja zwaraca dlugosc elementu loklnego*/
-        return parametrL = parametrL / parametrPrzedzialow;
+        double parametr;
+        return parametr = parametrL / parametrPrzedzialow;
     }
       /* public double symetrycznaElementu(double przedzialElementuGlobalnego) {
         double symetrycznaElementu = dlogoscOsi / 2;
@@ -50,7 +51,7 @@ public class WezlyElementow {
 
         double[] wspolzedneX = new double[10000];
         double x;
-        for (int i = 0; i < parametrL; i++) {
+        for (int i = 0; i < 10000; i++) {
             x = i * lokalnyParametrL;
             // przesunieciePrzedzialuLokalnego = i * przesunieciePrzedzialuLokalnego;
             wspolzedneX[i] = x;//przesunieciePrzedzialuLokalnego ;
@@ -104,7 +105,7 @@ public class WezlyElementow {
 */
     // jakoœ takoœ ale nie iestem przekonana
 
-    public double wykazWspolzednejY(int parametrPrzedzialow, double parametrL, double parametrF, double parametrJ, double wspolzednaX) {
+    public double wykazWspolzednejY(double parametrPrzedzialow, double parametrL, double parametrF, double parametrJ, double wspolzednaX) {
         double wspY;
         /*int L= 1;
         double f = 0.125;

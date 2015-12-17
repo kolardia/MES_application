@@ -66,7 +66,7 @@ import android.widget.Toast;
         private String sJ;
         private String sA;
 
-        private int parametrPrzedzialow;
+        private double parametrPrzedzialow;
         private double parametrL;
         private double parametrF;
         private double parametrP;
@@ -128,7 +128,7 @@ import android.widget.Toast;
             sJ = i.getStringExtra("J");
             sA = i.getStringExtra("A");
 
-            parametrPrzedzialow = Integer.valueOf(sPE).intValue();
+            parametrPrzedzialow = Double.valueOf(sPE).intValue();
             parametrL = Double.valueOf(sL).doubleValue();
             parametrF = Double.valueOf(sF).doubleValue();
             parametrP = Double.valueOf(sP).doubleValue();
@@ -263,11 +263,11 @@ import android.widget.Toast;
             xkWspx.setText("Wspolzedna x= " + getX.wykazWspolzednejX(parametrL, lokalnyParametrL, ++mXkWspx));
             ykWspy.setText("Wspolzedna y= " + getY.wykazWspolzednejY(parametrPrzedzialow, parametrL, parametrF, parametrJ, getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXkWspx)));
 
-            cosinusX.setText("cos(X,x1)= " + sPE  );
-            cosinusY.setText("cos(Z,x1)= " + sPE );
+            cosinusX.setText("cos(X,x1)= " + lokalnyParametrL  );
+            cosinusY.setText("cos(Z,x1)= " + lokalnyParametrL );
 
-            pN.setText("wykaz sily podluznej" + parametrE);
-            pM.setText("wykaz momentu zginajacego= " + test(++mLevel));
+            pN.setText("wykaz sily podluznej" + parametrPrzedzialow);
+            pM.setText("wykaz momentu zginajacego= " + parametrL);
 
             // loadInterstitial();
         }

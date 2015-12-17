@@ -28,7 +28,7 @@ public class DaneActivityActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dane);
 
-        //Przypisanie do zmiennych obiektów
+        //Przypisanie do zmiennych obiektow
         wprowadzIloscPrzedzialow = (EditText)findViewById(R.id.edit_przedzial_elementow);
         wprowadzP = (EditText)findViewById(R.id.edit_P);
         wprowadzL = (EditText)findViewById(R.id.edit_L);
