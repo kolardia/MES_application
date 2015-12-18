@@ -281,7 +281,8 @@ import android.widget.Toast;
             cosinusY.setText("Cosinus elementu Y= " + cosY);
                     //getCosinusY.cosinusElementuY(getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXiWspx), getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXkWspx), getY.wykazWspolzednejY(parametrPrzedzialow, parametrL, parametrF, parametrJ, getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXiWspx)),getY.wykazWspolzednejY(parametrPrzedzialow, parametrL, parametrF, parametrJ, getX.wykazWspolzednejX(parametrL, lokalnyParametrL, mXkWspx))));
 
-            pN.setText("wykaz sily podluznej = " + cosX * parametrP);
+            double sN = (cosX * parametrP * parametrA)/(parametrE * parametrJ);
+            pN.setText("wykaz sily podluznej = " + sN );
             pM.setText("wykaz momentu zginajacego = " + parametrElementowLokalnych);
 
             // loadInterstitial();
